@@ -189,7 +189,7 @@ void tickGame(){
 
 /// Renders everything in a game session.
 void renderGame(){
-	
+	drawBoard(&(state.game));
 }
 
 /// Does post-tick processes

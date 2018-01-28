@@ -2,11 +2,6 @@
 /// Contains declarations for rendering functions that can be implemented
 ///  in different ways.
 ///----------------------------------------------------------------------------
-/// E X P L A N A T I O N
-///- - - - - - - - - - - -
-///The screen starts at (0,40) in the upper left hand corner and goes to 
-/// (80,0) in the lower right hand corner.
-///----------------------------------------------------------------------------
 #ifndef GHRENDER_H
 #define GHRENDER_H
 
@@ -28,31 +23,13 @@
 /// @{
 /// @brief Initializes the renderer.
 void initRenderer(void);
-
-/// @brief Draw an alien; the specified location is if it is not swooping
-void drawAlien(Alien *a, pos_t x, pos_t y);
-
-/// @brief Draw player at the specified position
-void drawPlayer(pos_t x, pos_t y);
-
-/// @brief Draw an E1 at the specified position and direction
-void drawE1(int8_t e1flags1, pos_t x, pos_t y, pos_t xd, pos_t yd);
-
-void drawLevelScreen(int level, int lives, int score);
-
-void drawMainMenu(void);
-
-void drawGameOverScreen(int score);
-
-void drawIntroduction1(void);
-
-void drawInstructions(void);
 	
 void clearScreen(void);
 	
 void flushScreen(void);
 
-void drawScore(int score);
+/// @brief Draws the board 
+void drawBoard(GameState *states);
 
 /// @}
 #endif 

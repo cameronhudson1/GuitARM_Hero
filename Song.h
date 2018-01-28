@@ -7,6 +7,9 @@
 /// @addtogroup Typedefs
 /// @{
 
+/// Represents time measured by samples.
+typedef uint16_t samptime_t;
+
 /// Represents an audio instruction
 typedef uint16_t audioop_t;
 /// Represents a GuitARM Hero note
@@ -27,6 +30,7 @@ typedef noteop_t *songnotes_t;
 typedef struct SongData_s{
 	songaudio_t audio;
 	songnotes_t notes;
+        samptime_t length;
 } SongData;
 
 

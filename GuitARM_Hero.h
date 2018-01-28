@@ -8,9 +8,15 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#include "Song.h"
+
 ///----------------------------------------------------------------------------
 /// @addtogroup Defines
 /// @{
+
+#define BUTTON_BLUE_FLAG   1
+#define BUTTON_RED_FLAG    2
+#define BUTTON_YELLOW_FLAG 4
 
 /// @}
 ///----------------------------------------------------------------------------
@@ -20,16 +26,6 @@
 typedef uint8_t lives_t;
 typedef uint16_t score_t;
 typedef uint8_t level_t;
-
-//Music
-/// Represents an audio instruction
-typedef uint16_t audioop_t;
-/// Represents a GuitARM Hero note
-typedef uint8_t noteop_t;
-/// Represents the start to a list audio instructions that make up a song
-typedef audioop_t *songaudio_t; 
-/// Represents the start to a list game instructions that make up a song 
-typedef noteop_t *songnotes_t;
 
 /// @}
 ///----------------------------------------------------------------------------
@@ -48,12 +44,6 @@ struct PlayerGameData{
 	///Player score
 	score_t score;
 };
-
-///Data structure for song.
-typedef struct SongData_s{
-	songaudio_t audio;
-	songnotes_t notes;
-} SongData;
 
 ///Data structure containing all of the necessary information to contain the
 /// state of an active game.
@@ -76,7 +66,8 @@ typedef union StateUnion_s{
 typedef struct Inputs_s{
 	/// The current state of the slider.
 	int8_t slider;
-
+	/// The current state of the buttons
+	int8_t buttons;
 } Inputs;
 
 ///Data structure for variables that are common to at least most states.
