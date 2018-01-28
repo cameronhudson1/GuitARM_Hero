@@ -8,14 +8,8 @@
 ; the interrupt vector 28 to the UART0_ISR handler in this file
 ; for pure assembly projects. It automagically installs for 
 ; projects with the Device>Startup package installed.
-;The development of code presented in this module was 
-; significantly aided with tutorials and instruction given in
-; RIT's CMPE-250. I don't take any credit for most of the
-; work in this file.
 ;Name:  Koen Komeya
 ;Date:  November 2, 2017
-;Class:  CMPE-250
-;Section:  Lab Section 4: Thursday 11 AM - 1 PM
 ;---------------------------------------------------------------
 ;Revision 1 (November 6, 2017): Removed unnecessary interrupt
 ; clearing code from UART0 Interrupt Service Routine.

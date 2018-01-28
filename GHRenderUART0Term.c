@@ -1,15 +1,11 @@
-/// Space Game (name not final)
-/// @file SGRenderUART0Term.c
-/// Responsible for the terminal backend for rendering. TODO make the output buffered and modify SGRender interface for this chg
-/// @author Koen Komeya <kxk2610@rit.edu>
-/// @date 11/30/2017 ~
-/// [Final project for CMPE-250 (Section 4: Thursday 11 AM - 1 PM)]
+/// @file GHRenderUART0Term.c
+/// Responsible for the terminal backend for rendering. 
 //-----------------------------------------------------------------------------
 ///             Imports
 #include <string.h>
 
-#include "SGRender.h"
-#include "SpaceGame.h"
+#include "GHRender.h"
+#include "GuitARM_Hero.h"
 #include "UART0CharIO.h"
 ///----------------------------------------------------------------------------
 /// @addtogroup Defines
