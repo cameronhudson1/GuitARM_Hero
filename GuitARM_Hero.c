@@ -79,7 +79,7 @@ void startGame(){
 }
 
 
-/// Called every 1/50'th of a second to update stuff.
+/// Called every 1/1000'th of a second to do stuff.
 void tick(){
 	mode_tick();
 	mode_render();
@@ -102,7 +102,7 @@ int main(){
 	initRenderer();
 	EnableClock();
 	startGame();
-	//Do tick loop: Tick every 0.02s interval
+	//Do tick loop: Tick every 0.001s interval
 	while (1){
 		WaitForTick();
 		tick();
@@ -118,7 +118,6 @@ void updateOpState(opmode_t newState){
 	__asm("CPSID I");
 	switch (opMode){ //Deinitialization Procedure
 		case OM_Game:
-			DisableLCD();
 		break;
 		case OM_GameOver:
 		break;
@@ -133,33 +132,32 @@ void updateOpState(opmode_t newState){
 	switch (opMode){ //Initialization Procedure
 		case OM_TransitionState:
 			mode_tick = noop;
-		  mode_render = noop;
+			mode_render = noop;
 			mode_posttick = noop;
 		break;
 		case OM_Game:
 			mode_tick = tickGame;
-		  mode_render = renderGame;
+			mode_render = renderGame;
 			mode_posttick = postGame;
-		  EnableLCD();
 		break;
 		case OM_GameOver:
 			mode_tick = noop;
-		  mode_render = noop;
+			mode_render = noop;
 			mode_posttick = noop;
 		break;
 		case OM_MainMenu:
 			mode_tick = noop;
-		  mode_render = noop;
+			mode_render = noop;
 			mode_posttick = noop;
 		break;
 		case OM_IntroSequence:
 			mode_tick = noop;
-		  mode_render = noop;
+			mode_render = noop;
 			mode_posttick = noop;
 		break;
 		case OM_Credits:
 			mode_tick = noop;
-		  mode_render = noop;
+			mode_render = noop;
 			mode_posttick = noop;
 		break;
 	}
@@ -191,28 +189,7 @@ void tickGame(){
 
 /// Renders everything in a game session.
 void renderGame(){
-	if (cTick & 3) return;
-	if (cTick & 4){
-		clearScreen();
-		GameState *gs = &(state.game);
-		//Draw Player
-		if (!(gs->player.dying)) drawPlayer(gs->player.xPos, gs->player.yPos);
-		//Render each E1.
-		int gsae1s = gs->activeE1s;
-		for (e1count_t i = 0; i < gsae1s; i++){
-			Entity1 *e1 = gs->e1s[i];
-			drawE1(e1->flags1, e1->xPos, e1->yPos, e1->xVel, e1->yVel);
-		}
-		//Render each alien.
-		for (aliencount_t r = 0; r < ALIEN_ROWS; r++){
-			int rc = r * ALIEN_COLS;
-			for (aliencount_t c = 0; c < ALIEN_COLS; c++){
-				Alien *a = &(gs->aliens.alienArray[rc+c]);
-				drawAlien(a, gs->aliens.massXPos + c * ALIEN_MASS_SPREAD_X, 
-									gs->aliens.massYPos - r * ALIEN_MASS_SPREAD_Y);
-			}
-		}
-	}
+	
 }
 
 /// Does post-tick processes
