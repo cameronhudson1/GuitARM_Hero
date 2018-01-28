@@ -8,8 +8,6 @@
 ; the Device>Startup package installed.
 ;Name:  Koen Komeya 
 ;Date:  November 26, 2017
-;Class:  CMPE-250
-;Section:  Lab Section 4: Thursday 11 AM - 1 PM
 ;----------------------------------------------------------------------
 ;Keil Template for KL46 Assembly with Keil C startup
 ;R. W. Melton

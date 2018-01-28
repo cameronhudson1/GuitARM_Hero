@@ -1,21 +1,17 @@
-/// Space Game (name not final)
-/// @file SGRender.h
+/// @file GHRender.h
 /// Contains declarations for rendering functions that can be implemented
 ///  in different ways.
-/// @author Koen Komeya <kxk2610@rit.edu>
-/// @date 11/25/2017 ~
-/// [Final project for CMPE-250 (Section 4: Thursday 11 AM - 1 PM)]
 ///----------------------------------------------------------------------------
 /// E X P L A N A T I O N
 ///- - - - - - - - - - - -
 ///The screen starts at (0,40) in the upper left hand corner and goes to 
 /// (80,0) in the lower right hand corner.
 ///----------------------------------------------------------------------------
-#ifndef SGRENDER_H
-#define SGRENDER_H
+#ifndef GHRENDER_H
+#define GHRENDER_H
 
 /// Includes
-#include "SpaceGame.h"
+#include "GuitARM_Hero.h"
 ///----------------------------------------------------------------------------
 /// @addtogroup Defines
 /// @{
