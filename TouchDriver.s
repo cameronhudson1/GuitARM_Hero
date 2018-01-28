@@ -312,6 +312,7 @@ RTS_Max     ;We got a value of 128 or more, return 127
 	        ENDP
 	
             EXPORT  TSI0_IRQHandler
+				
 ;Interrupt Service Routine TSI0_IRQHandler
 ; Handles interrupts for the TSI0.
 ; Modified: R0-R1, APSR (NONE if via Interrupt)
